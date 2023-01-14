@@ -22,9 +22,11 @@ public class SudokuSolver {
 
     public static void main(String[] args) {
         
+        
        // Game Board Layout - 2 Dimensional Integer Array (numbers taken from a sudoko game generator)
        // int [row][column]
        int[][] board = {
+           
            {7, 0 , 2, 0, 5, 0, 6, 0, 0},
            {0, 0, 0, 0, 0, 3, 0, 0, 0},
            {1, 0, 0, 0, 0, 9, 5, 0, 0},
@@ -35,7 +37,31 @@ public class SudokuSolver {
            {0, 0, 0, 2, 0, 0, 0, 0, 0},
            {0, 0, 7, 0, 4, 0, 2, 0, 3}
        };
+       
+       
+       // Print Initial Game Board
+       printBoard(board);
+       
+       /** Calls Recursive Method
+           true - solved board successfully
+           false - initial board entered was not a valid board
+        */
+       if (solveBoard(board)) {
+           
+           System.out.println("Solved successfully!");
+        
+       } else {
+       
+           System.out.println("Unsolvable board :(");
+       }
+       
+       // Print Solved Board
+       printBoard(board);
+       
     }
+    
+    
+    
     
     /** HELPER METHODS
     used to see if number already exists in the Row, Column  or 3 by 3 Grid (Boolean to return true if it exists)
@@ -67,10 +93,9 @@ public class SudokuSolver {
                 return true;
             }
         }
-        
         return false;
         
-    };
+    }
     
     
     /** COLUMN
@@ -89,10 +114,9 @@ public class SudokuSolver {
                 return true;
             }
         }
-        
         return false;
         
-    };
+    }
     
     
     /** 3 by 3 GRID
@@ -118,7 +142,7 @@ public class SudokuSolver {
         
         for (int i = localGridRow; i < localGridRow + 3; i++) {
             
-            for (int j = localGridColumn; i < localGridColumn + 3; i++) {
+            for (int j = localGridColumn; j < localGridColumn + 3; j++) {
             
                 if (board[i][j] == number) {
                 
@@ -126,9 +150,8 @@ public class SudokuSolver {
                 }
             }
         }
-        
         return false;
-    };
+    }
   
     
     /** CHECKS ALL - ROW, COLUMN & 3 by 3 GRID
@@ -147,7 +170,8 @@ public class SudokuSolver {
                 !isNumberInColumn(board, number, column) &&
                 !isNumberInGrid(board, number, row, column);
     
-    };
+    }
+    
     
     /** RECURSIVE / BACKTRACKING METHOD TO MAKE SUDOKU GAME WORK
     ----------------------------------------------------------------------------------------------------------------
@@ -191,14 +215,45 @@ public class SudokuSolver {
                             
                                 board[row][column] = 0;
                             
-                            };
+                            }
                         }
                     }
-                    
                     // means could not solve board successfully
                     return false;
                 }
             }
         }
-    };
+        // solved board successfully
+        return true;
+    }
+    
+    
+    
+    /** PRINTS BOARD
+    ----------------------------------------------------------------------------------------------------------------
+     */
+    private static void printBoard(int[][] board) {
+    
+        for (int row = 0; row < GRID_SIZE; row++) {
+            
+            // FOR EVERY 3RD ROW, EXCEPT TOP ONE - INSERT LINE
+            if(row % 3 == 0 && row != 0) {
+            
+                System.out.println("------------");
+            }
+            for (int column = 0; column < GRID_SIZE; column++) {
+                
+                // FOR EVERY 3RD COLUMN, EXCEPT TOP ONE - INSERT LINE
+                if(column % 3 == 0 && column != 0) {
+
+                    System.out.print("|");
+                }
+                // PRINTS OUT NUMBERS IN CURRENT ROW & COLUMN
+                System.out.print(board[row][column]);
+            }
+            // prints each row on a new line
+            System.out.println();
+        }
+    }
+    
 }
