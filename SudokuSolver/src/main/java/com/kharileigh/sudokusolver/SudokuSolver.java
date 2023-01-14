@@ -247,7 +247,7 @@ public class SudokuSolver {
                 // FOR EVERY 3RD COLUMN, EXCEPT TOP ONE - INSERT LINE
                 if(column % 3 == 0 && column != 0) {
 
-                    System.out.print("|");
+                    System.out.print(" | ");
                 }
                 // PRINTS OUT NUMBERS IN CURRENT ROW & COLUMN
                 System.out.print(board[row][column]);
