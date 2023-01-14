@@ -27,15 +27,16 @@ public class SudokuSolver {
        // int [row][column]
        int[][] board = {
            
-           {7, 0 , 2, 0, 5, 0, 6, 0, 0},
-           {0, 0, 0, 0, 0, 3, 0, 0, 0},
-           {1, 0, 0, 0, 0, 9, 5, 0, 0},
-           {8, 0, 0, 0, 0, 0, 0, 9, 0},
-           {0, 4, 3, 0, 0, 0, 7, 5, 0},
-           {0, 9, 0, 0, 0, 0, 0, 0, 8},
-           {0, 0, 9, 7, 0, 0, 0, 0, 5},
-           {0, 0, 0, 2, 0, 0, 0, 0, 0},
-           {0, 0, 7, 0, 4, 0, 2, 0, 3}
+           {0, 1, 0, 0, 4, 6, 2, 7, 9},
+           {0, 0, 7, 1, 8, 3, 0, 5, 4},
+           {0, 0, 0, 9, 7, 0, 0, 3, 1},
+           {7, 5, 0, 0, 0, 4, 1, 0, 6},
+           {0, 0, 0, 0, 0, 8, 0, 0, 0},
+           {0, 0, 0, 2, 1, 0, 7, 0, 0},
+           {0, 7, 6, 0, 5, 0, 0, 1, 0},
+           {5, 0, 3, 0, 0, 0, 4, 6, 7},
+           {0, 8, 1, 0, 3, 0, 9, 0, 5}
+           
        };
        
        
@@ -48,11 +49,11 @@ public class SudokuSolver {
         */
        if (solveBoard(board)) {
            
-           System.out.println("Solved successfully!");
+           System.out.println("\n Solved successfully! \n ");
         
        } else {
        
-           System.out.println("Unsolvable board :(");
+           System.out.println("\n Unsolvable board :( \n");
        }
        
        // Print Solved Board
@@ -135,7 +136,7 @@ public class SudokuSolver {
      If Statement [WORK TOWARDS BASE CASE] :
      * check if number at row i & column j during each iteration
      */
-    private static boolean isNumberInGrid(int[][] board, int number, int column, int row) {
+    private static boolean isNumberInGrid(int[][] board, int number, int row, int column) {
         
         int localGridRow = row - row % 3;
         int localGridColumn = column - column % 3;
