@@ -240,14 +240,14 @@ public class SudokuSolver {
             // FOR EVERY 3RD ROW, EXCEPT TOP ONE - INSERT LINE
             if(row % 3 == 0 && row != 0) {
             
-                System.out.println("------------");
+                System.out.println("---------------");
             }
             for (int column = 0; column < GRID_SIZE; column++) {
                 
                 // FOR EVERY 3RD COLUMN, EXCEPT TOP ONE - INSERT LINE
                 if(column % 3 == 0 && column != 0) {
 
-                    System.out.print("  |  ");
+                    System.out.print(" | ");
                 }
                 // PRINTS OUT NUMBERS IN CURRENT ROW & COLUMN
                 System.out.print(board[row][column]);
