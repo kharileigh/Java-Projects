@@ -45,7 +45,8 @@ public class MortgageCalculator {
         System.out.println("\n Enter the Term in Years: ");
         int termInYears = scanner.nextInt();
         
-        
+        // Close Scanner after use to prevent potential resource leaks
+        scanner.close();
         
         /**
          * CALCULATIONS 
