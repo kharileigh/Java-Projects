@@ -45,8 +45,11 @@ public class MortgageCalculator {
         System.out.println("\n Enter the Term in Years: ");
         int termInYears = scanner.nextInt();
         
+        
+        
         /**
          * CALCULATIONS 
+         -----------------------------------------------------------------------
          * Goal : Find Monthly Payment Amount
          
          Principal MULTIPLIED BY 
@@ -74,6 +77,10 @@ public class MortgageCalculator {
         
         // Print Monthly Payment to User
         // Number Instance - formats double to a local currency
-        System.out.println("Monthly Payment: " + NumberFormat.getCurrencyInstance().format(monthlyPayment));
+        System.out.println("\n Monthly Payment: " + NumberFormat.getCurrencyInstance().format(monthlyPayment));
+        
+        // Total Loan Repayment - monthlyPayment MULTIPLIED BY numberOfPayments
+        System.out.println("\n Total Loan Repayment: " + NumberFormat.getCurrencyInstance().format(monthlyPayment * numberOfPayments));
+        
     }
 }
